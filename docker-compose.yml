@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  db:
+    image: mariadb
+    restart: always
+    volumes:
+      - ./mysql:/etc/mysql/conf.d:ro
+    environment:
+      MYSQL_ROOT_PASSWORD: phorge-dev
+  app:
+    build: ./application
+    ports:
+      - "80:80"
+    environment:
+      SQL_HOST: db
+      SQL_PORT: 3306
+      SQL_USER: root
+      SQL_PASSWORD: phorge-dev
+      BASE_URI: http://phabricator.localhost/
