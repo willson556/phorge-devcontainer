@@ -1,0 +1,13 @@
+[{
+        "type": "client",
+        "host": "phorge.localhost",
+        "port": 22280,
+        "protocol": "http"
+    },
+    {
+        "type": "admin",
+        "host": "127.0.0.1",
+        "port": 22281,
+        "protocol": "http"
+    }
+]

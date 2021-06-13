@@ -24,22 +24,17 @@ RUN chown phorge-daemon:2000 /var/tmp/phd/log
 
 # Nginx
 EXPOSE 80
-EXPOSE 443
-
 # Aphlict
-EXPOSE 843
 EXPOSE 22280
-
 # SSH
-EXPOSE 22
 EXPOSE 2222
 
 # == Add service config files ==
 ADD /config/nginx.conf.org /etc/nginx/
-ADD /config/nginx-ssl.conf.org /etc/nginx/
 ADD /config/fastcgi.conf /etc/nginx/
 ADD /config/php-fpm.conf /etc/php/7.4/fpm/
 ADD /config/php.ini /etc/php/7.4/fpm/
+ADD /config/aphlict.phorge.json /install_scripts/
 
 # == Add Supervisord config files ==
 RUN mkdir -p /var/log/supervisor

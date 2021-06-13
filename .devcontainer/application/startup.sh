@@ -35,31 +35,20 @@ pushd /srv/phorge/phorge
 
 ./bin/config set environment.append-paths '["/usr/lib/git-core"]'
 
-popd
-
-pushd /srv/phorge/phorge
-
-if [ -e /user-config/authorized_keys ]; then
-    echo "Copying authorized_keys file into place"
-    mkdir -p /root/.ssh/
-    cp /user-config/authorized_keys /root/.ssh/
-    chmod 600 /root/.ssh/authorized_keys
-fi
+./bin/config set notification.servers --stdin < /install_scripts/aphlict.phorge.json
 
 if [ -e /user-config/script.post ]; then
     echo "Applying post-configuration script..."
-    /config/script.post
-fi
-
-if [ -e /user-config/cert.pem ]; then
-    if [ -e /user-config/cert.key ]; then
-        echo "Enabling SSL due to presence of certificates!"
-        cp /etc/nginx/nginx-ssl.conf.org /etc/nginx/nginx.conf
-    fi
-else
-    cp /etc/nginx/nginx.conf.org /etc/nginx/nginx.conf
+    /user-config/script.post
 fi
 
 popd
 
+pushd /srv/phorge/phorge/support/aphlict/server
+
+npm install ws
+
+popd
+
+cp /etc/nginx/nginx.conf.org /etc/nginx/nginx.conf
 /srv/phorge/phorge/bin/storage upgrade --force

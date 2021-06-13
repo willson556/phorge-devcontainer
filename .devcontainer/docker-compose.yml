@@ -10,7 +10,8 @@ services:
   app:
     build: ./application
     ports:
-      - "80:80"
+      - 80:80
+      - 22280:22280
     environment:
       SQL_HOST: db
       SQL_PORT: 3306
