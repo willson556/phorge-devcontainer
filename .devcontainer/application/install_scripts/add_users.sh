@@ -15,3 +15,6 @@ chmod 0777 /var/tmp/phd/pid
 
 # Add git to sudoers
 echo "git ALL=(phorge-daemon) SETENV: NOPASSWD: /usr/bin/git-upload-pack, /usr/bin/git-receive-pack, /usr/bin/git, /usr/lib/git-core/git-http-backend" > /etc/sudoers.d/git
+
+echo 'export PATH="/srv/phorge/arcanist/bin:$PATH"' >> /root/.bashrc 
+echo 'export PATH="/srv/phorge/phorge/bin:$PATH"' >> /root/.bashrc
