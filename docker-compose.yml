@@ -16,4 +16,4 @@ services:
       SQL_PORT: 3306
       SQL_USER: root
       SQL_PASSWORD: phorge-dev
-      BASE_URI: http://phabricator.localhost/
+      BASE_URI: http://phorge.localhost/

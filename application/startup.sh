@@ -1,8 +1,16 @@
 
 #!/bin/bash
 
-set -e
 set -x
+
+echo "Waiting for mysql"
+until mysql -h"$SQL_HOST" -P"$SQL_PORT" -u"$SQL_USER" -p"$SQL_PASSWORD" &> /dev/null
+do
+  printf "."
+  sleep 1
+done
+
+echo -e "\nmysql ready"
 
 pushd /srv/phorge/phorge
 
@@ -15,6 +23,17 @@ pushd /srv/phorge/phorge
 
 ./bin/config set phd.user phorge-daemon
 ./bin/config set diffusion.ssh-user git
+./bin/config set diffusion.ssh-port 2222
+./bin/config set diffusion.allow-http-auth true
+
+./bin/config set phabricator.developer-mode true
+./bin/config set phabricator.show-prototypes true
+./bin/config set darkconsole.enabled true
+
+./bin/config set storage.mysql-engine.max-size 268435456
+./bin/config set pygments.enabled true
+
+./bin/config set environment.append-paths '["/usr/lib/git-core"]'
 
 popd
 
