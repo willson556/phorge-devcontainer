@@ -19,6 +19,7 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"bmewburn.vscode-intelephense-client"
+		"bmewburn.vscode-intelephense-client",
+		"felixfbecker.php-debug"
 	],
 }

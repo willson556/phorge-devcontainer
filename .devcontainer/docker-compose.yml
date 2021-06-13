@@ -17,3 +17,5 @@ services:
       SQL_USER: root
       SQL_PASSWORD: phorge-dev
       BASE_URI: http://phorge.localhost/
+    volumes:
+      - "./.vscode:/srv/phorge/.vscode"
