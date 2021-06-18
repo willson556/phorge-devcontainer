@@ -13,8 +13,8 @@ RUN mkdir /srv/phorge
 RUN chown git:wwwgrp-phorge /srv/phorge
 USER git
 WORKDIR /srv/phorge
-RUN git clone https://secure.phorge.it/source/phorge.git
-RUN git clone https://secure.phorge.it/source/arcanist.git
+RUN git clone https://we.phorge.it/source/phorge.git
+RUN git clone https://we.phorge.it/source/arcanist.git
 USER root
 WORKDIR /
 RUN mkdir -p /var/tmp/phd/log
