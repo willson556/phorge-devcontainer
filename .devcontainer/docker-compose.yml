@@ -10,13 +10,13 @@ services:
   app:
     build: ./application
     ports:
-      - 80:80
-      - 22280:22280
+      - "${PHORGE_WEB_PORT:-80}:80"
+      - "${PHORGE_SSH_PORT:-22280}:22280"
     environment:
       SQL_HOST: db
       SQL_PORT: 3306
       SQL_USER: root
       SQL_PASSWORD: phorge-dev
-      BASE_URI: http://phorge.localhost/
+      BASE_URI: "${PHORGE_BASE_URI:-http://phorge.localhost/}"
     volumes:
       - "./.vscode:/srv/phorge/.vscode"
