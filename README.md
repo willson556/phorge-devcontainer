@@ -26,9 +26,12 @@ To get started, copy `.devcontainer/.env.sample` and make appropriate edits
 
 You can edit the following
 
-`PHORGE_WEB_PORT` - Defaults to port `80`, set to something else if desired
-`PHORGE_SSH_PORT` - The SSH port that phorge repos will be available on.  Defaults to `22280`
-`PHORGE_BASE_URI` - The entry should match your hosts file.  Defaults to `http://phorge.localhost` - However, if you update `PHORGE_WEB_PORT` to something other than `80` you will need to update this URI to match.  e.g. if port is `8020` make this URI `http://phorge.localhost:8020`
+- `PHORGE_WEB_PORT` - Defaults to port `80`, set to something else if desired
+- `PHORGE_SSH_PORT` - The SSH port that phorge repos will be available on.  Defaults to `22280`
+- `PHORGE_BASE_URI` - The entry should match your hosts file.  Defaults to `http://phorge.localhost` - However, if you update `PHORGE_WEB_PORT` to something other than `80` you will need to update this URI to match.  e.g. if port is `8020` make this URI `http://phorge.localhost:8020`
+
+To verify this is working, click on the "Ports" tab when the terminal is open in VSCode to see what ports the services are running on.  Alternatively, you can run `docker ps` from the cli to see the port mappings.
+
 
 
 ## Debugging
