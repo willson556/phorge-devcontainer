@@ -10,6 +10,11 @@ This developer container quickly spins up a VSCode development environment for P
   - Notifications (Aphlict)
   - Repository hosting (SSH + HTTP)
 
+##  Prerequisites
+
+- [Remote - Containers VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- Recent version of Docker (see extension documentation for exact versions)
+
 ## Basic Usage
 
 - Clone this repository.
