@@ -1,5 +1,11 @@
 FROM ubuntu:20.04
 
+
+# == Get ca-certificates up to date ==
+RUN apt-get -y update
+RUN apt-get -y install ca-certificates
+
+
 # == Copy Data ==
 COPY install_scripts /install_scripts
 
